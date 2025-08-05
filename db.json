@@ -1,0 +1,226 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "usuario": "admin",
+      "password": "Capuli2025@"
+    }
+  ],
+  "reservas": [
+    {
+      "id": "8062",
+      "nombre": "Paola Jimenez",
+      "telefono": "91234567",
+      "fecha": "2025-07-18",
+      "hora": "07:48",
+      "mesa": "Mesa 2",
+      "codigo": "2Q8PZ4Q2",
+      "estado": "Cancelada"
+    },
+    {
+      "id": "f2e6",
+      "nombre": "Beto Cubas",
+      "telefono": "972345678",
+      "fecha": "2025-08-03",
+      "hora": "08:10",
+      "mesa": "Mesa 4",
+      "codigo": "3W9OO67Y",
+      "estado": "Cancelada"
+    },
+    {
+      "id": "83ae",
+      "nombre": "Pepe Campos",
+      "telefono": "987654323",
+      "fecha": "2025-08-03",
+      "hora": "22:46",
+      "mesa": "Mesa 1",
+      "codigo": "HHACXJNY",
+      "estado": "Cancelada"
+    },
+    {
+      "id": "e2c9",
+      "nombre": "Luis Carranza",
+      "telefono": "965342769",
+      "fecha": "2025-08-09",
+      "hora": "22:21",
+      "mesa": "Mesa 2",
+      "codigo": "500P2HTY",
+      "estado": "Cancelada"
+    },
+    {
+      "id": "088f",
+      "nombre": "José Blanco",
+      "telefono": "934526784",
+      "fecha": "2025-08-06",
+      "hora": "10:34",
+      "mesa": "Mesa 3",
+      "codigo": "30RM3RFA",
+      "estado": "Cancelada"
+    },
+    {
+      "id": "a525",
+      "nombre": "Manuel Ruiz",
+      "telefono": "974326578",
+      "fecha": "2025-08-02",
+      "hora": "19:22",
+      "personas": "5",
+      "mesa": "Mesa 3",
+      "codigo": "FMR-8069",
+      "estado": "Confirmada"
+    },
+    {
+      "id": "e668",
+      "nombre": "Ricardina Castro",
+      "telefono": "974237645",
+      "fecha": "2025-08-07",
+      "hora": "14:10",
+      "personas": "3",
+      "mesa": "Mesa 2",
+      "codigo": "QMY-7182",
+      "estado": "Confirmada"
+    },
+    {
+      "id": "887c",
+      "nombre": "Guillermo Vasquez",
+      "telefono": "987654327",
+      "fecha": "2025-08-06",
+      "hora": "15:11",
+      "personas": "5",
+      "mesa": "Mesa 4",
+      "codigo": "SMH-9652",
+      "estado": "Confirmada"
+    },
+    {
+      "id": "e00e",
+      "nombre": "Jorge Blanco",
+      "telefono": "986546386",
+      "fecha": "2025-08-08",
+      "hora": "19:03",
+      "personas": "5",
+      "mesa": "Mesa 2",
+      "codigo": "CYI-0867",
+      "estado": "Confirmada"
+    },
+    {
+      "id": "bf50",
+      "nombre": "Frank Palomino",
+      "telefono": "967352638",
+      "fecha": "2025-08-15",
+      "hora": "18:28",
+      "personas": "4",
+      "mesa": "Mesa 5",
+      "codigo": "QEP-2066",
+      "estado": "Confirmada"
+    },
+    {
+      "id": "30e5",
+      "nombre": "Lariza Penelope",
+      "telefono": "972345677",
+      "fecha": "2025-08-16",
+      "hora": "19:36",
+      "personas": "4",
+      "mesa": "Mesa 4",
+      "codigo": "BFZ-0210",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "8876",
+      "nombre": "hola",
+      "telefono": "980809789",
+      "fecha": "2025-08-05",
+      "hora": "05:16",
+      "personas": "2",
+      "mesa": "Mesa 3",
+      "codigo": "FBZ-2292",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "dea5",
+      "nombre": "hfghgfh",
+      "telefono": "980809345",
+      "fecha": "2025-08-05",
+      "hora": "02:22",
+      "personas": "2",
+      "mesa": "Mesa 2",
+      "codigo": "CIA-8898",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "113e",
+      "nombre": "fgdgdfg",
+      "telefono": "980809567",
+      "fecha": "2025-08-07",
+      "hora": "02:37",
+      "personas": "3",
+      "mesa": "Mesa 3",
+      "codigo": "IJC-2385",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "e56a",
+      "nombre": "asddfss",
+      "telefono": "980809345",
+      "fecha": "2025-08-05",
+      "hora": "02:38",
+      "personas": "2",
+      "mesa": "Mesa 3",
+      "codigo": "BAB-2759",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "88ce",
+      "nombre": "435435",
+      "telefono": "980809456",
+      "fecha": "2025-08-05",
+      "hora": "02:42",
+      "personas": "2",
+      "mesa": "Mesa 2",
+      "codigo": "HGB-3008",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "dd91",
+      "nombre": "rgegerg",
+      "telefono": "980809567",
+      "fecha": "2025-08-05",
+      "hora": "02:01",
+      "personas": "3",
+      "mesa": "Mesa 3",
+      "codigo": "HXF-3312",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "75dd",
+      "nombre": "sfdsfds",
+      "telefono": "980809789",
+      "fecha": "2025-08-07",
+      "hora": "02:06",
+      "personas": "2",
+      "mesa": "Mesa 1",
+      "codigo": "MBL-5714",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "4720",
+      "nombre": "trtret",
+      "telefono": "980809890",
+      "fecha": "2025-08-05",
+      "hora": "03:09",
+      "personas": "2",
+      "mesa": "Mesa 2",
+      "codigo": "JFV-7691",
+      "estado": "Pendiente"
+    },
+    {
+      "id": "04fb",
+      "nombre": "DANIEL RODRIGUEZ",
+      "telefono": "966666657",
+      "fecha": "2025-08-07",
+      "hora": "05:52",
+      "personas": "6",
+      "mesa": "Mesa 3",
+      "codigo": "RDM-5024",
+      "estado": "Pendiente"
+    }
+  ]
+}

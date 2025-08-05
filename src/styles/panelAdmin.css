@@ -1,0 +1,90 @@
+
+.panel-admin {
+  /* padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6f8;
+  min-height: 100vh; */
+}
+
+.titulo-panel {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.panel-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.panel-tabs button {
+  background-color: #e1e7e9;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.panel-tabs button.active {
+  background-color: #64748b;
+  color: #fff;
+}
+
+.panel-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem 2rem;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.total {
+  color: #2d3748;
+}
+
+.confirmadas {
+  color: #16a34a;
+}
+
+.pendientes {
+  color: #eab308;
+}
+
+.canceladas {
+  color: #dc2626;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+}

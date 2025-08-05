@@ -1,0 +1,74 @@
+/* src/styles/confirmacionReserva.css */
+
+.confirmacion {
+  padding: 2rem;
+  background-color: white;
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  width: min(100%, 450px);
+  border: 2px solid var(--color-success-text);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.confirmacion-cabecera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: .5rem;
+}
+
+.confirmacion-cabecera h2 {
+  color: var(--color-success-text);
+}
+
+.confirmacion-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--font-size-md);
+}
+
+.detalle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-primary);
+}
+
+.detalle-item i {
+  font-size: 1.25rem;
+  color: var(--color-brand-600);
+  flex-shrink: 0;
+}
+
+.detalle-item strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.detalle-item span {
+  color: var(--color-text-secondary);
+}
+
+.info-restaurante {
+  padding-top: 2rem;
+  font-size: .75rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+  border-top: 1px solid #ccc;
+}
+
+.stat-icon.stat-icon--lg {
+  height: 72px;
+  width: 72px;
+  aspect-ratio: 1;
+  margin-bottom: 1rem;
+}
+
+.stat-icon.stat-icon--lg i {
+  font-size: 2rem;
+}

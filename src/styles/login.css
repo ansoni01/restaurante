@@ -1,0 +1,13 @@
+.login {
+  width: min(100%, 450px);
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}

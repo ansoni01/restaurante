@@ -1,0 +1,61 @@
+.panel-admin-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.panel-admin-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.panel-admin-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.panel-admin-buttons button {
+  padding: 12px 24px;
+  background-color: #a68b5b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.panel-admin-buttons button:hover {
+  background-color: #8a724a;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .panel-admin-container {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .panel-admin-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .panel-admin-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .panel-admin-buttons button {
+    width: 100%;
+    max-width: 250px;
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}

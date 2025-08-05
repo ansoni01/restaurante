@@ -1,0 +1,299 @@
+/* ===============================
+   ESTILOS GLOBALES PARA LA APP
+   =============================== */
+
+   :root {
+    /* Brand Scale */
+    --color-brand-50:  #e9ebe6;
+    --color-brand-100: #dce0d9;
+    --color-brand-200: #c5cbb9;
+    --color-brand-300: #afb69a;
+    --color-brand-400: #98a17a;
+    --color-brand-500: #718161;
+    --color-brand-600: #5f6d53;
+    --color-brand-700: #4d5946;
+    --color-brand-800: #3b4538;
+    --color-brand-900: #2a312a;
+  
+    /* Grayscale Scale */
+    --color-gray-50:  #fdfdfe;
+    --color-gray-100: #f8f9fa;
+    --color-gray-200: #e9ecef;
+    --color-gray-300: #dee2e6;
+    --color-gray-400: #ced4da;
+    --color-gray-500: #adb5bd;
+    --color-gray-600: #6c757d;
+    --color-gray-700: #495057;
+    --color-gray-800: #343a40;
+    --color-gray-900: #212529;
+  
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+  
+    /* Semantic Colors */
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-600);
+    --color-text-inverse: #ffffff;
+  
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: var(--color-gray-200);
+    --color-bg-muted: var(--color-gray-200);
+  
+    --color-border: var(--color-gray-300);
+    --color-border-strong: var(--color-gray-500);
+  
+    --color-accent: var(--color-brand-500);
+    --color-accent-hover: var(--color-brand-600);
+    --color-accent-muted: var(--color-brand-200);
+  
+    --color-button-primary: var(--color-brand-500);
+    --color-button-primary-hover: var(--color-brand-600);
+  
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.10), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+    /* Estados */
+    --color-success-bg: #d1e7dd;
+    --color-success-text: #0f5132;
+  
+    --color-warning-bg: #fff3cd;
+    --color-warning-text: #664d03;
+  
+    --color-danger-bg: #f8d7da;
+    --color-danger-text: #842029;
+  }
+  
+  /* ===============================
+     RESET Y TIPOGRAFÍA BASE
+     =============================== */
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  body {
+    height: 100vh;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, Roboto, "Segoe UI", "Helvetica Neue", sans-serif, Arial;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+  }
+  
+  /* ===============================
+     TIPOGRAFÍA
+     =============================== */
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    text-wrap: balance;
+  }
+  
+  p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* ===============================
+     FORMULARIOS
+     =============================== */
+  
+  label {
+    display: block;
+    font-weight: 500;
+    color: var(--color-gray-800);
+  }
+  
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  select {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 16px;
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    appearance: none;
+    background-image: none;
+  }
+  
+  input::placeholder,
+  select::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: var(--color-brand-500) !important;
+    box-shadow: 0 0 0 3px rgba(113, 129, 97, 0.2);
+  }
+  
+  /* ===============================
+     BOTONES
+     =============================== */
+  
+  button {
+    background-color: var(--color-button-primary);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--color-button-primary-hover);
+  }
+  
+  /* Botón circular */
+  .btn-circle {
+    width: 48px;
+    height: 48px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--color-brand-200);
+    background-color: white;
+    color: var(--color-brand-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .btn-circle:hover {
+    background-color: var(--color-brand-100);
+    border-color: var(--color-brand-300);
+  }
+  
+  .btn-circle i {
+    font-size: 1.25rem;
+  }
+  
+  /* Variación small */
+  .btn-circle--sm {
+    width: 36px;
+    height: 36px;
+    aspect-ratio: 1;
+    padding: 0;
+  }
+  
+  .btn-circle--sm i {
+    font-size: 1rem;
+  }
+  
+  /* ===============================
+     ELEMENTOS ESTRUCTURALES
+     =============================== */
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
+    padding: 2rem;
+  }
+  
+  /* ===============================
+     TABLAS
+     =============================== */
+  
+  .table-scroll {
+    overflow-x: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    margin-top: 1rem;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+  
+  .table thead {
+    background-color: var(--color-gray-100);
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* ===============================
+     ETIQUETAS DE ESTADO
+     =============================== */
+  
+  .estado {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .estado.confirmada {
+    background-color: var(--color-success-bg);
+    color: var(--color-success-text);
+  }
+  
+  .estado.pendiente {
+    background-color: var(--color-warning-bg);
+    color: var(--color-warning-text);
+  }
+  
+  .estado.cancelada {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+  }
+  
+  /* ===============================
+     ACCIONES DE FILA
+     =============================== */
+  
+  .acciones {
+    display: flex;
+    gap: 0.5rem;
+  }  

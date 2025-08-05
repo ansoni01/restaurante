@@ -1,0 +1,23 @@
+
+.react-calendar {
+  width: 100%;
+  background-color: var(--color-gray-300);
+  border-radius: .5rem;
+  border: none;
+}
+
+.react-calendar button {
+  color: var(--color-text-primary);
+  background-color: var(--color-gray-300);
+  aspect-ratio: 1;
+}
+
+.react-calendar button:hover {
+  background-color: var(--color-gray-400) !important;
+}
+
+.react-calendar button.marcado {
+  background: var(--color-button-primary) !important;
+  color: white !important;
+  font-weight: bold;
+}
