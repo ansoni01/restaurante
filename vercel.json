@@ -1,7 +1,11 @@
 {
   "routes": [
     { 
-      "src": "/api/(.*)", 
+      "src": "/api/reservas/(?<id>[^/]+)", 
+      "dest": "/api/reservas.js?id=$id"
+    },
+    { 
+      "src": "/api/reservas", 
       "dest": "/api/reservas.js" 
     },
     { 

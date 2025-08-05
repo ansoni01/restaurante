@@ -1,4 +1,3 @@
-// const API_URL = "http://localhost:3001/reservas";
 const API_URL = "/api/reservas";
 
 export const obtenerReservas = async () => {
@@ -16,7 +15,9 @@ export const agregarReserva = async (nuevaReserva) => {
 };
 
 export const eliminarReserva = async (id) => {
-  await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+  await fetch(`${API_URL}/${id}`, { 
+    method: "DELETE" 
+  });
 };
 
 export const actualizarReserva = async (id, datosActualizados) => {
