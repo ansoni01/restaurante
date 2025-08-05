@@ -1,16 +1,22 @@
 {
   "routes": [
-    { 
-      "src": "/api/reservas/(?<id>[^/]+)", 
-      "dest": "/api/reservas.js?id=$id" 
+    {
+      "src": "/api/reservas(?:/(.*))?",
+      "dest": "/api/reservas.js"
     },
-    { 
-      "src": "/api/reservas", 
-      "dest": "/api/reservas.js" 
+    {
+      "src": "/static/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
     },
-    { 
-      "src": "/(.*)", 
-      "dest": "/index.html" 
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
     }
   ]
 }
