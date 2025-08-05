@@ -15,9 +15,14 @@ export const agregarReserva = async (nuevaReserva) => {
 };
 
 export const eliminarReserva = async (id) => {
-  await fetch(`${API_URL}/${id}`, { 
+  const response = await fetch(`${API_URL}/${id}`, { 
     method: "DELETE" 
   });
+  
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || "Error al eliminar reserva");
+  }
 };
 
 export const actualizarReserva = async (id, datosActualizados) => {
@@ -26,5 +31,11 @@ export const actualizarReserva = async (id, datosActualizados) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(datosActualizados),
   });
+  
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || "Error al actualizar reserva");
+  }
+  
   return await response.json();
 };

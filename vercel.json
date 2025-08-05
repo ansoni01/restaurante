@@ -2,11 +2,11 @@
   "routes": [
     { 
       "src": "/api/reservas/(?<id>[^/]+)", 
-      "dest": "/api/reservas.js?id=$id"
+      "dest": "/api/reservas/[id].js" 
     },
     { 
       "src": "/api/reservas", 
-      "dest": "/api/reservas.js" 
+      "dest": "/api/reservas/index.js" 
     },
     { 
       "src": "/(.*)", 
