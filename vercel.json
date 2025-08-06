@@ -1,16 +1,11 @@
 {
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "build/**", "use": "@vercel/static" }
+  ],
   "routes": [
-    { 
-      "src": "/api/reservas/(?<id>[^/]+)", 
-      "dest": "/api/reservas/[id].js" 
-    },
-    { 
-      "src": "/api/reservas", 
-      "dest": "/api/reservas/index.js" 
-    },
-    { 
-      "src": "/(.*)", 
-      "dest": "/index.html" 
-    }
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/build/$1" }
   ]
 }
