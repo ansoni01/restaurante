@@ -4,14 +4,27 @@ import path from 'path';
 const DB_PATH = path.join(process.cwd(), 'db.json');
 
 export default async function handler(req, res) {
-  const { id } = req.query;
-
   try {
+    const { id } = req.query;
+
     // GET: Obtener todas las reservas
-    if (req.method === 'GET') {
+    if (req.method === 'GET' && !id) {
       const data = await fs.readFile(DB_PATH, 'utf-8');
       const db = JSON.parse(data);
       return res.status(200).json(db.reservas);
+    }
+
+    // GET: Obtener reserva específica
+    if (req.method === 'GET' && id) {
+      const data = await fs.readFile(DB_PATH, 'utf-8');
+      const db = JSON.parse(data);
+      const reserva = db.reservas.find(r => r.id === id);
+      
+      if (!reserva) {
+        return res.status(404).json({ error: "Reserva no encontrada" });
+      }
+      
+      return res.status(200).json(reserva);
     }
 
     // POST: Crear reserva
@@ -31,7 +44,7 @@ export default async function handler(req, res) {
     }
 
     // DELETE: Eliminar reserva
-    if (req.method === 'DELETE') {
+    if (req.method === 'DELETE' && id) {
       const db = JSON.parse(await fs.readFile(DB_PATH, 'utf-8'));
       const initialLength = db.reservas.length;
       
@@ -46,7 +59,7 @@ export default async function handler(req, res) {
     }
 
     // PUT: Actualizar reserva
-    if (req.method === 'PUT') {
+    if (req.method === 'PUT' && id) {
       const updatedData = req.body;
       const db = JSON.parse(await fs.readFile(DB_PATH, 'utf-8'));
       const index = db.reservas.findIndex(reserva => reserva.id === id);
