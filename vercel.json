@@ -10,33 +10,15 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "src": "/api/reservas/(?<id>[^/]+)",
-      "methods": ["GET", "PUT", "DELETE"],
-      "dest": "/api/reservas"
-    },
-    {
-      "src": "/api/reservas",
-      "methods": ["GET", "POST"],
-      "dest": "/api/reservas"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/build/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/static/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      },
-      "continue": true
-    }
-  ],
   "rewrites": [
+    {
+      "source": "/api/reservas/:id",
+      "destination": "/api/reservas"
+    },
+    {
+      "source": "/api/reservas",
+      "destination": "/api/reservas"
+    },
     {
       "source": "/(.*)",
       "destination": "/build/$1"
