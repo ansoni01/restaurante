@@ -12,8 +12,7 @@ const JSONBIN_API_KEY = "$2a$10$.xSZJNEAl1lqwkPIEPI9Qe9OkJVMqBx0B1XnFhhB1QzdtM3Q
 
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
-// Función para obtener reservas desde JSONBin
-async function obtenerReservas() {
+async function obtenerDatosCompletos() {
   await importFetch();
   
   try {
@@ -29,15 +28,15 @@ async function obtenerReservas() {
     }
     
     const data = await response.json();
-    return data.record.reservas || [];
+    // Asegurar estructura completa con valores por defecto
+    return data.record || { usuarios: [], reservas: [] };
   } catch (error) {
-    console.error('Error obteniendo reservas:', error);
-    return [];
+    console.error('Error obteniendo datos:', error);
+    return { usuarios: [], reservas: [] };
   }
 }
 
-// Función para guardar reservas en JSONBin
-async function guardarReservas(reservas) {
+async function guardarDatosCompletos(datos) {
   await importFetch();
   
   try {
@@ -47,7 +46,7 @@ async function guardarReservas(reservas) {
         'Content-Type': 'application/json',
         'X-Master-Key': JSONBIN_API_KEY
       },
-      body: JSON.stringify({ reservas })
+      body: JSON.stringify(datos)
     });
     
     if (!response.ok) {
@@ -56,7 +55,7 @@ async function guardarReservas(reservas) {
     
     return await response.json();
   } catch (error) {
-    console.error('Error guardando reservas:', error);
+    console.error('Error guardando datos:', error);
     throw error;
   }
 }
@@ -66,74 +65,74 @@ export default async function handler(req, res) {
     const { id } = req.query;
     let body = '';
     
-    // Leer el cuerpo de la solicitud para métodos POST/PUT
     if (req.method === 'POST' || req.method === 'PUT') {
       for await (const chunk of req) body += chunk;
     }
 
+    // Obtener TODOS los datos (reservas + usuarios)
+    let datosCompletos = await obtenerDatosCompletos();
+
+    // Asegurar estructura si falta algún campo
+    if (!datosCompletos.usuarios) datosCompletos.usuarios = [];
+    if (!datosCompletos.reservas) datosCompletos.reservas = [];
+
     switch(req.method) {
       case 'GET':
         if (id) {
-          // GET con ID: reserva específica
-          const reservas = await obtenerReservas();
-          const reserva = reservas.find(r => r.id === id);
-          
+          const reserva = datosCompletos.reservas.find(r => r.id === id);
           if (!reserva) return res.status(404).json({ error: "Reserva no encontrada" });
           return res.status(200).json(reserva);
         } else {
-          // GET sin ID: todas las reservas
-          const reservas = await obtenerReservas();
-          return res.status(200).json(reservas);
+          return res.status(200).json(datosCompletos.reservas);
         }
 
       case 'POST':
-        // Crear nueva reserva
         const newReserva = JSON.parse(body);
-        const reservas = await obtenerReservas();
         
-        // Generar ID único
-        newReserva.id = Date.now().toString(36);
-        
-        // Validar campos obligatorios
+        // Validación
         if (!newReserva.nombre || !newReserva.fecha || !newReserva.hora) {
           return res.status(400).json({ error: "Datos incompletos" });
         }
 
-        // Añadir nueva reserva
-        reservas.push(newReserva);
-        await guardarReservas(reservas);
+        // Generar ID y añadir reserva
+        newReserva.id = Date.now().toString(36);
+        datosCompletos.reservas.push(newReserva);
+        
+        // Guardar estructura COMPLETA
+        await guardarDatosCompletos(datosCompletos);
         return res.status(201).json(newReserva);
 
       case 'DELETE':
-        // Eliminar reserva (requiere ID)
         if (!id) return res.status(400).json({ error: "ID requerido" });
         
-        const reservasActuales = await obtenerReservas();
-        const nuevasReservas = reservasActuales.filter(reserva => reserva.id !== id);
+        const initialLength = datosCompletos.reservas.length;
+        datosCompletos.reservas = datosCompletos.reservas.filter(r => r.id !== id);
         
-        if (reservasActuales.length === nuevasReservas.length) {
+        if (datosCompletos.reservas.length === initialLength) {
           return res.status(404).json({ error: "Reserva no encontrada" });
         }
 
-        await guardarReservas(nuevasReservas);
+        await guardarDatosCompletos(datosCompletos);
         return res.status(204).end();
 
       case 'PUT':
-        // Actualizar reserva (requiere ID)
         if (!id) return res.status(400).json({ error: "ID requerido" });
         
         const updatedData = JSON.parse(body);
-        const todasReservas = await obtenerReservas();
-        const index = todasReservas.findIndex(reserva => reserva.id === id);
+        const reservaIndex = datosCompletos.reservas.findIndex(r => r.id === id);
         
-        if (index === -1) {
+        if (reservaIndex === -1) {
           return res.status(404).json({ error: "Reserva no encontrada" });
         }
 
-        // Actualizar solo los campos proporcionados
-        todasReservas[index] = { ...todasReservas[index], ...updatedData };
-        await guardarReservas(todasReservas);
-        return res.status(200).json(todasReservas[index]);
+        // Actualizar solo campos proporcionados
+        datosCompletos.reservas[reservaIndex] = {
+          ...datosCompletos.reservas[reservaIndex],
+          ...updatedData
+        };
+        
+        await guardarDatosCompletos(datosCompletos);
+        return res.status(200).json(datosCompletos.reservas[reservaIndex]);
 
       default:
         res.setHeader('Allow', ['GET', 'POST', 'DELETE', 'PUT']);
