@@ -1,12 +1,21 @@
-import fetch from 'node-fetch';
+let fetch;
 
+async function importFetch() {
+  if (!fetch) {
+    const { default: fetchModule } = await import('node-fetch');
+    fetch = fetchModule;
+  }
+}
 // Configuración de JSONBin
 const JSONBIN_BIN_ID = "6893f5ac7b4b8670d8af3a20";
 const JSONBIN_API_KEY = "$2a$10$rWoyDjttFWoh0u8.xztIue4agtREH0Fh3l6Dyy232ycaggVUF9Z3.";
+
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
 // Función para obtener reservas desde JSONBin
 async function obtenerReservas() {
+  await importFetch();
+  
   try {
     const response = await fetch(`${JSONBIN_URL}/latest`, {
       headers: {
@@ -29,6 +38,8 @@ async function obtenerReservas() {
 
 // Función para guardar reservas en JSONBin
 async function guardarReservas(reservas) {
+  await importFetch();
+  
   try {
     const response = await fetch(JSONBIN_URL, {
       method: 'PUT',
