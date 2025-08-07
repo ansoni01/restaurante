@@ -13,8 +13,11 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch(`${API_URL}/usuarios?usuario=${usuario}&password=${password}`);
+   try {
+      // Usar la ruta relativa para producción
+      const apiUrl = `/api/usuarios?usuario=${usuario}&password=${password}`;
+
+      const response = await fetch(apiUrl);
       const data = await response.json();
 
       if (data.length > 0) {
@@ -27,6 +30,7 @@ const Login = () => {
       setError('Error al conectar con el servidor');
       console.error('Error en login:', error);
     }
+  
   };
 
   return (
