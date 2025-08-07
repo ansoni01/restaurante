@@ -13,11 +13,11 @@
   "routes": [
     {
       "src": "/api/reservas/(.*)",
-      "dest": "/api/reservas.func"
+      "dest": "/api/reservas.func.js"
     },
     {
       "src": "/api/reservas",
-      "dest": "/api/reservas.func"
+      "dest": "/api/reservas.func.js"
     },
     {
       "src": "/(.*)",
