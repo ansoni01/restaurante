@@ -8,8 +8,9 @@ async function importFetch() {
 }
 
 // Configuración de JSONBin
-const JSONBIN_BIN_ID = process.env.JSONBIN_BIN_ID;
-const JSONBIN_API_KEY = process.env.JSONBIN_API_KEY;
+const JSONBIN_BIN_ID = "6893f5ac7b4b8670d8af3a20";
+const JSONBIN_API_KEY = "$2a$10$.xSZJNEAl1lqwkPIEPI9Qe9OkJVMqBx0B1XnFhhB1QzdtM3QEqs6m";
+
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
 export default async function handler(req, res) {
