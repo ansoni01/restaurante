@@ -1,4 +1,4 @@
-const API_URL = "/api/reservas";
+const API_URL = "/api/reservas.func";
 
 // Función para manejar errores de la API
 const handleApiError = async (response) => {

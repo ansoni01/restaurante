@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/reservas.js",
+      "src": "api/reservas.func.js",
       "use": "@vercel/node"
     },
     {
@@ -10,18 +10,18 @@
       "use": "@vercel/static"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/reservas/:id",
-      "destination": "/api/reservas"
+      "src": "/api/reservas/(.*)",
+      "dest": "/api/reservas.func"
     },
     {
-      "source": "/api/reservas",
-      "destination": "/api/reservas"
+      "src": "/api/reservas",
+      "dest": "/api/reservas.func"
     },
     {
-      "source": "/(.*)",
-      "destination": "/build/$1"
+      "src": "/(.*)",
+      "dest": "/build/$1"
     }
   ]
 }
