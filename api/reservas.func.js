@@ -8,7 +8,7 @@ async function importFetch() {
 }
 // Configuración de JSONBin
 const JSONBIN_BIN_ID = "6893f5ac7b4b8670d8af3a20";
-const JSONBIN_API_KEY = "$2a$10$rWoyDjttFWoh0u8.xztIue4agtREH0Fh3l6Dyy232ycaggVUF9Z3.";
+const JSONBIN_API_KEY = "$2a$10$.xSZJNEAl1lqwkPIEPI9Qe9OkJVMqBx0B1XnFhhB1QzdtM3QEqs6m";
 
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
